@@ -1,6 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
+const cookeParser =  require('cookie-parser');
+const session = require('express-session');
+const uuidv4 = require('uuid/v4');
 const os = require('os');
 
 const db = require('./sql/mysql');
@@ -18,6 +21,16 @@ db.connect(db.MODE_PRODUCTION, function(err) {
 })
 
 app.use(express.static('dist'));
+app.use(cookeParser());
+
+app.use(session({
+  genid: function(req) {
+    return uuidv4(); // use UUIDs for session IDs
+  },
+  secret: 'a really very cool super store',
+  name: 'id',
+  saveUninitialized: false
+}));
 
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
