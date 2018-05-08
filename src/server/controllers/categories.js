@@ -13,9 +13,9 @@ exports.getAll = function(req, res) {
 exports.get = function(req, res) {
   categories.get(req.params.catId, function(err, data) {
     if (err) {
-      res.send({error: err});
+      res.status(400).send({error: err});
     } else {
-      res.send(data);
+      res.status(200).send(data);
     }
   })
 }

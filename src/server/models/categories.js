@@ -1,8 +1,13 @@
-var db = require('../sql/mysql.js')
+const db = require('../sql/mysql.js');
+
+function abort(connection, done, error) {
+  connection.release();
+  done(error);
+}
 
 exports.get = function(id, done) {
   db.get(db.READ, function(err, connection) {
-    if (err) return done(err);
+    if (err) return abort(connection, done, err);
 
     let query;
 

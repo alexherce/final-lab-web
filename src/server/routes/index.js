@@ -1,17 +1,21 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
-var categories = require('../controllers/categories');
+const categories = require('../controllers/categories');
+const users = require('../controllers/users');
 
 // CATEGORIES
 router.get('/categories', function(req, res, next) {
   categories.get(req, res);
-  // res.send({name: 'alex'});
 });
 
 router.get('/categories/:catId', function(req, res, next) {
   categories.get(req, res);
-  // res.send({name: 'alex'});
+});
+
+// USERS
+router.post('/users/signup', function(req, res, next) {
+  users.signup(req, res);
 });
 
 module.exports = router;
