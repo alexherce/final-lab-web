@@ -11,6 +11,12 @@ class FeaturedProductsSection extends React.Component {
           </div>
           {}
           <WrapSlick />
+          <WrapSlick />
+          <WrapSlick />
+          <WrapSlick />
+          <WrapSlick />
+          <WrapSlick />
+          <WrapSlick />
         </div>
       </section>
     );

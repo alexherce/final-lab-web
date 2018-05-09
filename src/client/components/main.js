@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import Banner from './banner.js';
+import Section_cart from './section_cart.js';
 import FeaturedProductsSection from './featured_products_section.js';
 import Banner2 from './banner2.js';
 import Shipping from './shipping.js';
+
 //
 // import CartHeaderDropdownMobile from './cart_header_dropdown_mobile.js';
 // import CartHeaderDropdown from './cart_header_dropdown.js';
@@ -22,8 +24,8 @@ export default class Main extends Component {
   render() {
     return (
       <div>
-
         <Banner/>
+        <Section_cart/>
         <FeaturedProductsSection/>
         <Banner2/>
         <Shipping/>

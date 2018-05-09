@@ -1,6 +1,6 @@
 import React from "react";
 
-class title_image extends React.Component {
+class Title_image extends React.Component {
   render() {
     return (
       <section
@@ -15,4 +15,4 @@ class title_image extends React.Component {
   }
 }
 
-export default title_image;
+export default Title_image;
