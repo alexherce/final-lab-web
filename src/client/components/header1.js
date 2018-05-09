@@ -63,14 +63,14 @@ class Header1 extends React.Component {
               </a>
               <span className="linedivide1" />
               <div className="header-wrapicon2">
+                <a href="/cart" className="header-wrapicon1 dis-block">
                 <img
                   src="public/images/icons/icon-header-02.png"
                   className="header-icon1 js-show-header-dropdown"
                   alt="ICON"
                 />
                 <span className="header-icons-noti">0</span>
-                {}
-                <CartHeaderDropdown />
+              </a>
               </div>
             </div>
           </div>
