@@ -20,8 +20,6 @@ db.connect(db.MODE_PRODUCTION, function(err) {
   }
 })
 
-app.use(express.static('dist'));
-
 app.use(cookeParser());
 
 app.use(session({
@@ -38,6 +36,16 @@ app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
 // Add routes
 app.use('/api/', routes);
+app.use(express.static('dist'));
+console.log(path.join(__dirname, '../../public/index.html'));
 
+
+app.get('/*', function(req, res) {
+  res.sendFile('../../public/index.html', function(err) {
+    if (err) {
+      res.status(500).send(err)
+    }
+  })
+})
 
 app.listen(8080, () => console.log('Listening on port 8080!'));
