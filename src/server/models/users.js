@@ -58,7 +58,7 @@ exports.login = function(body, sessionId, done) {
 exports.getUserSession = function(sessionId, done) {
   if (!sessionId) return done('Missing required field: sessionId');
 
-  db.get(db.WRITE, function(err, connection) {
+  db.get(db.READ, function(err, connection) {
     if (err) return abort(connection, done, err);
 
     connection.query("SELECT id, name, last_name, email FROM users WHERE session = '" + sessionId + "'", function (err, rows) {

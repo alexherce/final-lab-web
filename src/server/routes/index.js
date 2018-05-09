@@ -4,13 +4,15 @@ const uuidv4 = require('uuid/v4');
 
 const categories = require('../controllers/categories');
 const users = require('../controllers/users');
+const products = require('../controllers/products');
+const orders = require('../controllers/orders');
 
 function loggedIn(session) {
   if (session.userId && (session.auth == session.id)) return true;
   return false;
 }
 
-// CATEGORIES
+// ----- CATEGORIES -----
 router.get('/categories', function(req, res, next) {
   categories.get(req, res);
 });
@@ -19,7 +21,7 @@ router.get('/categories/:catId', function(req, res, next) {
   categories.get(req, res);
 });
 
-// USERS
+// ----- USERS -----
 router.post('/users/signup', function(req, res, next) {
   users.signup(req, res);
 });
@@ -36,8 +38,37 @@ router.get('/users/verify', function(req, res, next) {
   users.getUserSession(req, res);
 });
 
+// ----- PRODUCTS -----
+router.get('/products', function(req, res, next) {
+  products.getAll(req, res);
+});
 
-// TESTING AND DEBUGGING
+router.get('/products/:prodId', function(req, res, next) {
+  products.get(req, res);
+});
+
+router.get('/products/category/:catId', function(req, res, next) {
+  products.filterCategory(req, res);
+});
+
+// ----- ORDERS -----
+router.post('/orders/new', function(req, res, next) {
+  orders.new(req, res);
+});
+
+router.get('/orders', function(req, res, next) {
+  orders.getAll(req, res);
+});
+
+router.get('/orders/:ordId', function(req, res, next) {
+  orders.get(req, res);
+});
+
+router.get('/orders/:ordId/products', function(req, res, next) {
+  orders.getOrderProducts(req, res);
+});
+
+// ----- TESTING AND DEBUGGING -----
 router.get('/testing/session/destroy', function(req, res, next) {
   req.session.destroy(function(err) {
     // cannot access session here
@@ -51,11 +82,6 @@ router.get('/testing/session/get', function(req, res, next) {
   } else {
     res.send('not logged in');
   }
-});
-
-router.get('/testing/session/create', function(req, res, next) {
-  req.session.success = 'true';
-  res.send(req.session.id);
 });
 
 module.exports = router;
