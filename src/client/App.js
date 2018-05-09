@@ -12,9 +12,11 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    fetch('/api/getUsername')
+    document.title = "Amazing Page";
+    
+    fetch('/api/categories')
       .then(res => res.json())
-      .then(user => this.setState({ username: user.username }));
+      .then(res => this.setState({ username: res[0].name }));
   }
 
   render() {

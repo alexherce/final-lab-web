@@ -13,9 +13,16 @@
   "author": "Sandeep Raveesh",
   "license": "ISC",
   "dependencies": {
+    "async": "^2.6.0",
+    "body-parser": "^1.18.2",
+    "cookie-parser": "^1.4.3",
     "express": "^4.16.3",
+    "express-session": "^1.15.6",
+    "mysql": "^2.15.0",
+    "nodemailer": "^4.6.4",
     "react": "^16.3.1",
-    "react-dom": "^16.3.1"
+    "react-dom": "^16.3.1",
+    "uuid": "^3.2.1"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
