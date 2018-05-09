@@ -18,9 +18,7 @@ class Section_cart extends React.Component {
                     <th className="column-4 p-l-70">Quantity</th>
                     <th className="column-5">Total</th>
                   </tr>
-                  <tr className="table-row" data-component="cart_page_product">
                     <Cart_page_product />
-                  </tr>
                 </tbody>
               </table>
             </div>

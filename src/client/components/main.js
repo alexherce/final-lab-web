@@ -25,12 +25,9 @@ export default class Main extends Component {
     return (
       <div>
         <Banner/>
-        <Section_cart/>
         <FeaturedProductsSection/>
         <Banner2/>
         <Shipping/>
-
-
       </div>
     );
   }
