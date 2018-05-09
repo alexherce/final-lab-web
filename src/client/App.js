@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import './app.css';
 
+import Header1 from './components/header1.js';
+import Main from './components/main.js';
+import Footer from './components/footer.js';
+
 export default class App extends Component {
   constructor(props) {
     super(props);
@@ -16,11 +20,9 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        {this.state.username ? (
-          <h1>Hello {this.state.username}!</h1>
-        ) : (
-          <h1>Loading.. please wait!</h1>
-        )}
+        <Header1/>
+        <Main/>
+        <Footer/>
       </div>
     );
   }
