@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import {
+  BrowserRouter as Router,
+  Route
+} from 'react-router-dom';
 import './app.css';
 
 import Header1 from './components/header1.js';
@@ -13,17 +17,22 @@ export default class App extends Component {
 
   componentDidMount() {
     document.title = "Amazing Page";
-    
+
     fetch('/api/categories')
-      .then(res => res.json())
-      .then(res => this.setState({ username: res[0].name }));
+    .then(res => res.json())
+    .then(res => this.setState({ username: res[0].name }));
   }
 
   render() {
     return (
       <div>
         <Header1/>
-        <Main/>
+        <Router>
+          <div>
+            <Route exact path="/" component={Main}/>
+            <Route path="/cart" component={Main}/>
+          </div>
+        </Router>
         <Footer/>
       </div>
     );
