@@ -11,19 +11,6 @@ import Cart from './components/cart.js';
 import Footer from './components/footer.js';
 
 export default class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { username: null };
-  }
-
-  componentDidMount() {
-    document.title = "Amazing Page";
-
-    fetch('/api/categories')
-    .then(res => res.json())
-    .then(res => this.setState({ username: res[0].name }));
-  }
-
   render() {
     return (
       <div>
@@ -31,6 +18,7 @@ export default class App extends Component {
         <Router>
           <div>
             <Route exact path="/" component={Main}/>
+            <Route exact path="/:id" component={Main}/>
             <Route path="/cart" component={Cart}/>
           </div>
         </Router>
