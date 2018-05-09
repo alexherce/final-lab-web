@@ -18,21 +18,15 @@ class Header1 extends React.Component {
               <a href="#" className="topbar-social-item fa fa-youtube-play" />
             </div>
             <span className="topbar-child1">
-              Free shipping for standard order over $100
+              Free shipping on all products!
             </span>
             <div className="topbar-child2">
               <span className="topbar-email">marxel@gmail.com</span>
-              <div className="topbar-language rs1-select2">
-                <select className="selection-1" name="time">
-                  <option>USD</option>
-                  <option>EUR</option>
-                </select>
-              </div>
             </div>
           </div>
           <div className="wrap_header">
             {}
-            <a href="index.html" className="logo">
+            <a href="/" className="logo">
               <h1>marXel</h1>
               {}
             </a>
@@ -41,13 +35,13 @@ class Header1 extends React.Component {
               <nav className="menu">
                 <ul className="main_menu">
                   <li>
-                    <a href="index.html">Home</a>
+                    <a href="/">Home</a>
                   </li>
                   <li>
-                    <a href="product.html">Shop</a>
+                    <a href="#">Shop</a>
                   </li>
                   <li>
-                    <a href="contact.html">Contact</a>
+                    <a href="#">Contact</a>
                   </li>
                 </ul>
               </nav>
@@ -63,14 +57,14 @@ class Header1 extends React.Component {
               </a>
               <span className="linedivide1" />
               <div className="header-wrapicon2">
+                <a href="/cart" className="header-wrapicon1 dis-block">
                 <img
                   src="public/images/icons/icon-header-02.png"
                   className="header-icon1 js-show-header-dropdown"
                   alt="ICON"
                 />
                 <span className="header-icons-noti">0</span>
-                {}
-                <CartHeaderDropdown />
+              </a>
               </div>
             </div>
           </div>
