@@ -6,7 +6,17 @@ class WrapSlick extends React.Component {
     return (
       <div className="wrap-slick2">
         <div className="slick2">
-          <ItemSlick />
+          <div className="item-slick2 p-l-15 p-r-15">
+            <div className="block2">
+              <ItemSlick />
+              <ItemSlick />
+              <ItemSlick />
+              <ItemSlick />
+              <ItemSlick />
+              <ItemSlick />
+              <ItemSlick />
+            </div>
+          </div>
         </div>
       </div>
     );
