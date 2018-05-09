@@ -3,7 +3,7 @@ import React from "react";
 class CartHeaderItem extends React.Component {
   render() {
     return (
-      <li className="header-cart-item">
+      <div>
         <div className="header-cart-item-img">
           <img src="public/images/item-cart-01.jpg" alt="IMG" />
         </div>
@@ -13,7 +13,7 @@ class CartHeaderItem extends React.Component {
           </a>
           <span className="header-cart-item-info">1 x $19.00</span>
         </div>
-      </li>
+      </div>
     );
   }
 }

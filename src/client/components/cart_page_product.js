@@ -4,7 +4,7 @@ class Cart_page_product extends React.Component {
   render() {
     return (
       <tr className="table-row" data-component="cart_page_product">
-          <td class="column-1">
+          <td className="column-1">
             <div className="cart-img-product b-rad-4 o-f-hidden">
               <img src="public/images/item-10.jpg" alt="IMG-PRODUCT" />
             </div>
@@ -27,7 +27,7 @@ class Cart_page_product extends React.Component {
               </button>
             </div>
           </td>
-          <td class="column-5">$36.00</td>
+          <td className="column-5">$36.00</td>
       </tr>
     );
   }

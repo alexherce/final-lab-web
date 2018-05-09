@@ -6,7 +6,9 @@ class CartHeaderDropdown extends React.Component {
     return (
       <div className="header-cart header-dropdown">
         <ul className="header-cart-wrapitem">
-          <CartHeaderItem />
+          <li className="header-cart-item" data-component="CartHeaderItem">
+            <CartHeaderItem />
+          </li>
         </ul>
         <div className="header-cart-total">Total: $75.00</div>
         <div className="header-cart-buttons">
