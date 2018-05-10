@@ -37,13 +37,12 @@ app.use(express.static('dist'));
 
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
-console.log(path.join(__dirname, '../../public/index.html'));
 
 // Add routes
 app.use('/api/', routes);
 
 app.get('/', function(req, res) {
-  res.sendFile(path.join(__dirname, '../../public/index.html'), function(err) {
+  res.sendFile(path.join(__dirname, '../../dist/index.html'), function(err) {
     if (err) {
       res.status(500).send(err)
     }
@@ -51,7 +50,7 @@ app.get('/', function(req, res) {
 })
 
 app.get('/*', function(req, res) {
-  res.sendFile(path.join(__dirname, '../../public/index.html'), function(err) {
+  res.sendFile(path.join(__dirname, '../../dist/index.html'), function(err) {
     if (err) {
       res.status(500).send(err)
     }
