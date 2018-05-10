@@ -88,7 +88,8 @@ export default class Main extends Component {
       method: 'post',
       headers: new Headers({'Content-Type': 'application/json'}),
       body: JSON.stringify({
-        "products": this.state.cart
+        "products": this.state.cart,
+        "postal_code": "00000"
       })
     })
     .then(res => res.json())
