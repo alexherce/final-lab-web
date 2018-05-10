@@ -162,11 +162,11 @@ class LogIn extends React.Component {
                       </div>
                       <div className="form-group">
                         <label className="sr-only" htmlFor="signup_password1">Password</label>
-                        <input type="text" name="signup_password1" placeholder="Password..." className="form-email form-control" id="signup_password1" required/>
+                        <input type="password" name="signup_password1" placeholder="Password..." className="form-email form-control" id="signup_password1" required/>
                       </div>
                       <div className="form-group">
                         <label className="sr-only" htmlFor="signup_password2">Repeat Password</label>
-                        <input type="text" name="signup_password2" placeholder="Repeat Password..." className="form-email form-control" id="signup_password2" required/>
+                        <input type="password" name="signup_password2" placeholder="Repeat Password..." className="form-email form-control" id="signup_password2" required/>
                       </div>
                       <button type="submit" className="btn">Sign me up!</button>
                     </form>
