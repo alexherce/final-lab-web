@@ -9,7 +9,9 @@ import Header1 from './components/header1.js';
 import Main from './components/main.js';
 import Cart from './components/cart.js';
 import Products from './components/products.js';
+import LogIn from './components/login.js';
 import Footer from './components/footer.js';
+
 
 export default class App extends Component {
   render() {
@@ -21,6 +23,8 @@ export default class App extends Component {
             <Route exact path="/" component={Main}/>
             <Route path="/cart" component={Cart}/>
             <Route path="/products" component={Products}/>
+            <Route path="/login" component={LogIn}/>
+
           </div>
         </Router>
         <Footer/>

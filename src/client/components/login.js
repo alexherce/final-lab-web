@@ -1,7 +1,7 @@
 import React from "react";
 
 
-clas LogIn extends React.Component {
+class LogIn extends React.Component {
   render() {
     return (
       <div className="top-content">
