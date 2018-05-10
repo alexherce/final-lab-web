@@ -9,7 +9,7 @@ class Banner extends React.Component {
             <div className="col-sm-10 col-md-8 col-lg-4 m-l-r-auto">
               {}
               <div className="block1 hov-img-zoom pos-relative m-b-30">
-                <img src="public/images/grass2.jpg" alt="IMG-BENNER" />
+                <img src="/images/grass2.jpg" alt="IMG-BENNER" />
                 <div className="block1-wrapbtn w-size2">
                   {}
                   <a
@@ -22,7 +22,7 @@ class Banner extends React.Component {
               </div>
               {}
               <div className="block1 hov-img-zoom pos-relative m-b-30">
-                <img src="public/images/powder3.jpg" alt="IMG-BENNER" />
+                <img src="/images/powder3.jpg" alt="IMG-BENNER" />
                 <div className="block1-wrapbtn w-size2">
                   {}
                   <a
@@ -37,7 +37,7 @@ class Banner extends React.Component {
             <div className="col-sm-10 col-md-8 col-lg-4 m-l-r-auto">
               {}
               <div className="block1 hov-img-zoom pos-relative m-b-30">
-                <img src="public/images/candies2.jpg" alt="IMG-BENNER" />
+                <img src="/images/candies2.jpg" alt="IMG-BENNER" />
                 <div className="block1-wrapbtn w-size2">
                   {}
                   <a
@@ -50,7 +50,7 @@ class Banner extends React.Component {
               </div>
               {}
               <div className="block1 hov-img-zoom pos-relative m-b-30">
-                <img src="public/images/shrooms2.jpg" alt="IMG-BENNER" />
+                <img src="/images/shrooms2.jpg" alt="IMG-BENNER" />
                 <div className="block1-wrapbtn w-size2">
                   {}
                   <a
@@ -65,7 +65,7 @@ class Banner extends React.Component {
             <div className="col-sm-10 col-md-8 col-lg-4 m-l-r-auto">
               {}
               <div className="block1 hov-img-zoom pos-relative m-b-30">
-                <img src="public/images/stickers1.jpg" alt="IMG-BENNER" />
+                <img src="/images/stickers1.jpg" alt="IMG-BENNER" />
                 <div className="block1-wrapbtn w-size2">
                   {}
                   <a
@@ -78,7 +78,7 @@ class Banner extends React.Component {
               </div>
               {}
               <div className="block2 wrap-pic-w pos-relative m-b-30">
-                <img src="public/images/icons/bg-01.jpg" alt="IMG" />
+                <img src="/images/icons/bg-01.jpg" alt="IMG" />
                 <div className="block2-content sizefull ab-t-l flex-col-c-m">
                   <h4 className="m-text4 t-center w-size3 p-b-8">
                     Sign up & get 20% off

@@ -31,21 +31,31 @@ app.use(session({
   saveUninitialized: false
 }));
 
+// app.use(express.static(path.join(__dirname, '../../dist')));
+// const publicPath = express.static(path.join(__dirname, '../../dist'));
+app.use(express.static('dist'));
+
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
+console.log(path.join(__dirname, '../../public/index.html'));
 
 // Add routes
 app.use('/api/', routes);
-app.use(express.static('dist'));
-console.log(path.join(__dirname, '../../public/index.html'));
 
-
-app.get('/*', function(req, res) {
-  res.sendFile('../../public/index.html', function(err) {
+app.get('/', function(req, res) {
+  res.sendFile(path.join(__dirname, '../../dist/index.html'), function(err) {
     if (err) {
       res.status(500).send(err)
     }
   })
 })
 
-app.listen(8080, () => console.log('Listening on port 8080!'));
+app.get('/*', function(req, res) {
+  res.sendFile(path.join(__dirname, '../../dist/index.html'), function(err) {
+    if (err) {
+      res.status(500).send(err)
+    }
+  })
+})
+
+app.listen(4000, () => console.log('Listening on port 8080!'));

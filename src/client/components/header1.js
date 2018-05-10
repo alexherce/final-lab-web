@@ -85,7 +85,7 @@ class Header1 extends React.Component {
           <div className="header-icons">
             <a href="/authenticate" className="header-wrapicon1 dis-block">
               <img
-                src="/public/images/icons/icon-header-01.png"
+                src="/images/icons/icon-header-01.png"
                 className="header-icon1"
                 alt="ICON"
               />
@@ -94,7 +94,7 @@ class Header1 extends React.Component {
             <div className="header-wrapicon2">
               <a href="/cart" className="header-wrapicon1 dis-block">
               <img
-                src="/public/images/icons/icon-header-02.png"
+                src="/images/icons/icon-header-02.png"
                 className="header-icon1 js-show-header-dropdown"
                 alt="ICON"
               />

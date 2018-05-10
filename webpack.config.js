@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const outputDirectory = 'dist';
 
@@ -31,7 +32,7 @@ module.exports = {
     open: true,
     historyApiFallback: true,
     proxy: {
-      '/api': 'http://localhost:8080'
+      '/api': 'http://localhost:4000'
     }
   },
   plugins: [
@@ -39,6 +40,9 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './public/index.html',
       favicon: './public/favicon.ico'
-    })
+    }),
+    new CopyWebpackPlugin([
+      { from: 'public/static' }
+    ])
   ]
 };

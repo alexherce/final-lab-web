@@ -18,16 +18,16 @@ exports.connect = function(mode, done) {
     state.pool = mysql.createPoolCluster()
 
     state.pool.add('WRITE', {
-      host: 'localhost',
-      user: 'lol1',
-      password: '0V0VpXySZPu3T54n',
+      host: '35.196.92.58',
+      user: 'labweb1',
+      password: 'VU9KChjRMbd6hazc',
       database: PRODUCTION_DB
     })
 
     state.pool.add('READ1', {
-      host: 'localhost',
-      user: 'lol2',
-      password: '75N2Ts6APmPWaOs5',
+      host: '35.196.92.58',
+      user: 'labweb2',
+      password: 'cET6ggE3P0ClGPEW',
       database: PRODUCTION_DB
     })
   }
