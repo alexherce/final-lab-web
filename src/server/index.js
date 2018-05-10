@@ -41,6 +41,7 @@ app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 // Add routes
 app.use('/api/', routes);
 
+
 app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, '../../dist/index.html'), function(err) {
     if (err) {
