@@ -3,6 +3,7 @@ const orders = require('../models/orders');
 exports.new = function(req, res) {
   orders.new(req, function(err, data) {
     if (err) {
+      console.log(err);
       res.status(400).send({error: err});
     } else {
       res.status(201).send(data);
