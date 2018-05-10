@@ -8,6 +8,7 @@ import './app.css';
 import Header1 from './components/header1.js';
 import Main from './components/main.js';
 import Cart from './components/cart.js';
+import Products from './components/products.js';
 import Footer from './components/footer.js';
 
 export default class App extends Component {
@@ -18,8 +19,8 @@ export default class App extends Component {
         <Router>
           <div>
             <Route exact path="/" component={Main}/>
-            <Route exact path="/:id" component={Main}/>
             <Route path="/cart" component={Cart}/>
+            <Route path="/products" component={Products}/>
           </div>
         </Router>
         <Footer/>
