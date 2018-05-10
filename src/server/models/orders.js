@@ -13,7 +13,7 @@ function abortTransaction(connection, done, error) {
   });
 }
 
-function loopProducts(i, max, orderId, products, connection, done) {
+function loopProducts(i, max, orderId, products, connection, done, req) {
   connection.query("SELECT id, stock, price FROM products WHERE id = '" + products[i].id + "'", function (err, rows) {
     if (err) return abortTransaction(connection, done, err);
     if (!rows.length) return abortTransaction(connection, done, 'No product found');
@@ -37,10 +37,11 @@ function loopProducts(i, max, orderId, products, connection, done) {
             connection.commit(function(errs) {
               connection.release();
               if (errs) return done(errs);
-              done(null, {success: true});
+              req.session.cart = [];
+              done(null, {success: true, cart: req.session.cart, orderId: orderId});
             });
           } else {
-            loopProducts(i + 1, max, orderId, products, connection, done);
+            loopProducts(i + 1, max, orderId, products, connection, done, req);
           }
         });
       });
@@ -63,7 +64,7 @@ exports.new = function(req, done) {
         if (err) return abortTransaction(connection, done, err);
         if (!result.insertId) return abortTransaction(connection, done, 'Error while creating order');
 
-        loopProducts(0, products.length - 1, result.insertId, products, connection, done);
+        loopProducts(0, products.length - 1, result.insertId, products, connection, done, req);
       });
     });
   });
@@ -77,7 +78,7 @@ exports.get = function(userId, orderId, done) {
       if (err) return abort(connection, done, err);
       if (!orderRows.length) return abort(connection, done, 'No order found');
 
-      connection.query("SELECT p.name, p.description, p.price AS unit_price, p.currency, op.quantity, op.price FROM products AS p LEFT OUTER JOIN orders_products AS op ON p.id = op.product_id LEFT OUTER JOIN orders AS o ON op.order_id = o.id WHERE o.user = " + userId + " AND op.order_id = " + orderId + "", function (err, productsRows) {
+      connection.query("SELECT p.name, p.description, p.price AS unit_price, p.currency, p.image, op.quantity, op.price FROM products AS p LEFT OUTER JOIN orders_products AS op ON p.id = op.product_id LEFT OUTER JOIN orders AS o ON op.order_id = o.id WHERE o.user = " + userId + " AND op.order_id = " + orderId + "", function (err, productsRows) {
         if (err) return abort(connection, done, err);
         if (!productsRows.length) return abort(connection, done, 'No orders found');
 

@@ -63,16 +63,6 @@ class Products extends React.Component {
       						<ul className="p-b-54">
       							{this.state.categories.map((category:string,i:number)=><Category category={category} key={i}/>)}
       						</ul>
-      						<h4 className="m-text14 p-b-32">
-      							Filters
-      						</h4>
-      						<div className="search-product pos-relative bo4 of-hidden" >
-      							<input className="s-text7 size6 p-l-23 p-r-50" type="text" name="search-product" placeholder="Search Products..."/>
-
-      							<button className="flex-c-m size5 ab-r-m color2 color0-hov trans-0-4">
-      								<i className="fs-12 fa fa-search" aria-hidden="true"></i>
-      							</button>
-      						</div>
       					</div>
       				</div>
               <div className="col-sm-6 col-md-8 col-lg-9 p-b-50" data-component="products_holder">

@@ -41,6 +41,12 @@ exports.login = function(req, res) {
       res.status(401).send({error: err});
     } else {
       req.session.userId = data.id;
+      req.session.userInfo = {
+        name: data.name,
+        last_name: data.last_name,
+        email: data.email
+      };
+      req.session.cart = [];
       res.status(200).send(data);
     }
   })

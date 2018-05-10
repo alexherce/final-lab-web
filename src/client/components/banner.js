@@ -13,7 +13,7 @@ class Banner extends React.Component {
                 <div className="block1-wrapbtn w-size2">
                   {}
                   <a
-                    href="#"
+                    href="/products/category/6"
                     className="flex-c-m size2 m-text2 bg3 hov1 trans-0-4"
                   >
                     Coriander
@@ -26,7 +26,7 @@ class Banner extends React.Component {
                 <div className="block1-wrapbtn w-size2">
                   {}
                   <a
-                    href="#"
+                    href="/products/category/3"
                     className="flex-c-m size2 m-text2 bg3 hov1 trans-0-4"
                   >
                     Powder
@@ -41,7 +41,7 @@ class Banner extends React.Component {
                 <div className="block1-wrapbtn w-size2">
                   {}
                   <a
-                    href="#"
+                    href="/products/category/2"
                     className="flex-c-m size2 m-text2 bg3 hov1 trans-0-4"
                   >
                     Candies
@@ -54,7 +54,7 @@ class Banner extends React.Component {
                 <div className="block1-wrapbtn w-size2">
                   {}
                   <a
-                    href="#"
+                    href="/products/category/4"
                     className="flex-c-m size2 m-text2 bg3 hov1 trans-0-4"
                   >
                     Mushrooms
@@ -69,7 +69,7 @@ class Banner extends React.Component {
                 <div className="block1-wrapbtn w-size2">
                   {}
                   <a
-                    href="#"
+                    href="/products/category/5"
                     className="flex-c-m size2 m-text2 bg3 hov1 trans-0-4"
                   >
                     Stickers
@@ -90,7 +90,7 @@ class Banner extends React.Component {
                   <div className="w-size2 p-t-25">
                     {}
                     <a
-                      href="#"
+                      href="/authenticate"
                       className="flex-c-m size2 bg4 bo-rad-23 hov1 m-text3 trans-0-4"
                     >
                       Sign Up

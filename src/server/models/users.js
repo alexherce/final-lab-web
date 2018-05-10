@@ -36,7 +36,7 @@ exports.login = function(body, sessionId, done) {
   db.get(db.WRITE, function(err, connection) {
     if (err) return abort(connection, done, err);
 
-    connection.query("SELECT id, name, last_name FROM users WHERE email = '" + body.email + "' AND password = '" + body.password + "'", function (err, rows) {
+    connection.query("SELECT id, name, last_name, email FROM users WHERE email = '" + body.email + "' AND password = '" + body.password + "'", function (err, rows) {
       if (err) return abort(connection, done, err);
       if (!rows.length) return abort(connection, done, 'Incorrect login credentials');
 
@@ -48,7 +48,8 @@ exports.login = function(body, sessionId, done) {
           success: true,
           id: rows[0].id,
           name: rows[0].name,
-          last_name: rows[0].last_name
+          last_name: rows[0].last_name,
+          email: rows[0].email
         });
       });
     });

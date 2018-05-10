@@ -19,18 +19,13 @@ export default class Main extends Component {
   }
 
   componentDidMount() {
-    document.title = "marXel";
-
-    fetch('/api/products')
-    .then(res => res.json())
-    .then(res => this.setState({ products: res.products }));
+    document.title = "Home | marXel";
   }
 
   render() {
     return (
       <div>
-        <p>{this.props.match.params.id}</p>
-        <Banner productsArray={this.state.products}/>
+        <Banner/>
         <Shipping/>
       </div>
     );

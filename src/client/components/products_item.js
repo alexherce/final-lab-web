@@ -6,15 +6,7 @@ class ProductsItem extends React.Component {
       <div className="col-sm-12 col-md-6 col-lg-4 p-b-50">
         <div className="block2">
           <div className="block2-img wrap-pic-w of-hidden pos-relative">
-            <img src={this.props.product.image} alt="IMG-PRODUCT"/>
-
-            <div className="block2-overlay trans-0-4">
-              <div className="block2-btn-addcart w-size1 trans-0-4">
-                <button className="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-                  Add to Cart
-                </button>
-              </div>
-            </div>
+            <a href={'/products/detail/' + this.props.product.id}><img src={this.props.product.image} alt="IMG-PRODUCT"/></a>
           </div>
 
           <div className="block2-txt p-t-20">

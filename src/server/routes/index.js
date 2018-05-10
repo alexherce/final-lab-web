@@ -68,6 +68,69 @@ router.get('/orders/:ordId/products', function(req, res, next) {
   orders.getOrderProducts(req, res);
 });
 
+router.get('/session/get', function(req, res, next) {
+  if(loggedIn(req.session)) {
+    res.status(200).send({
+      userId: req.session.userId,
+      userInfo: req.session.userInfo,
+      cartItems: req.session.cart.length
+    });
+  } else {
+    res.status(401).send({error: 'User not logged in'});
+  }
+});
+
+router.post('/session/cart/add', function(req, res, next) {
+  if(loggedIn(req.session)) {
+      let cartId = req.session.cart.findIndex(x => x.id === req.body.id);
+      if (cartId >= 0) {
+        req.session.cart[cartId].quantity += req.body.quantity;
+      } else {
+        req.session.cart.push({
+          id: req.body.id,
+          quantity: req.body.quantity,
+          name: req.body.name,
+          price: req.body.price,
+          image: req.body.image
+        });
+      }
+    res.status(200).send({ success: true });
+  } else {
+    res.status(401).send({error: 'User not logged in'});
+  }
+});
+
+router.post('/session/cart/update', function(req, res, next) {
+  if(loggedIn(req.session)) {
+      let cartId = req.session.cart.findIndex(x => x.id === req.body.id);
+      if (cartId >= 0) {
+        req.session.cart[cartId].quantity = req.body.quantity;
+        if (req.body.quantity <= 0) req.session.cart.splice(cartId, 1);
+      } else {
+        if(req.body.quantity > 0) {
+          req.session.cart.push({
+            id: req.body.id,
+            quantity: req.body.quantity,
+            name: req.body.name,
+            price: req.body.price,
+            image: req.body.image
+          });
+        }
+      }
+    res.status(200).send({ success: true, cart: req.session.cart });
+  } else {
+    res.status(401).send({error: 'User not logged in'});
+  }
+});
+
+router.get('/session/cart/get', function(req, res, next) {
+  if(loggedIn(req.session)) {
+    res.status(200).send({ cart: req.session.cart });
+  } else {
+    res.status(401).send({error: 'User not logged in'});
+  }
+});
+
 // ----- TESTING AND DEBUGGING -----
 router.get('/testing/session/destroy', function(req, res, next) {
   req.session.destroy(function(err) {
