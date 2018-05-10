@@ -7,7 +7,6 @@ class Header1 extends React.Component {
   render() {
     return (
       <header className="header1">
-        {}
         <div className="container-menu-header">
           <div className="topbar">
             <div className="topbar-social">
@@ -25,12 +24,9 @@ class Header1 extends React.Component {
             </div>
           </div>
           <div className="wrap_header">
-            {}
             <a href="/" className="logo">
               <h1>marXel</h1>
-              {}
             </a>
-            {}
             <div className="wrap_menu">
               <nav className="menu">
                 <ul className="main_menu">
@@ -38,19 +34,15 @@ class Header1 extends React.Component {
                     <a href="/">Home</a>
                   </li>
                   <li>
-                    <a href="#">Shop</a>
-                  </li>
-                  <li>
-                    <a href="#">Contact</a>
+                    <a href="/products">Shop</a>
                   </li>
                 </ul>
               </nav>
             </div>
-            {}
             <div className="header-icons">
               <a href="#" className="header-wrapicon1 dis-block">
                 <img
-                  src="public/images/icons/icon-header-01.png"
+                  src="/public/images/icons/icon-header-01.png"
                   className="header-icon1"
                   alt="ICON"
                 />
@@ -59,7 +51,7 @@ class Header1 extends React.Component {
               <div className="header-wrapicon2">
                 <a href="/cart" className="header-wrapicon1 dis-block">
                 <img
-                  src="public/images/icons/icon-header-02.png"
+                  src="/public/images/icons/icon-header-02.png"
                   className="header-icon1 js-show-header-dropdown"
                   alt="ICON"
                 />
@@ -69,10 +61,8 @@ class Header1 extends React.Component {
             </div>
           </div>
         </div>
-        {}
         <HeaderMobile />
-        {}
-        <MenuMobile />
+        <MenuMobile/>
       </header>
     );
   }

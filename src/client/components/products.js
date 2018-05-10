@@ -4,30 +4,49 @@ import update from 'immutability-helper';
 import ProductsItem from "./products_item";
 import Category from "./category";
 
+const defaultState = {
+  products: [],
+  categories: []
+};
+
 class Products extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       products: [],
+      categories: []
     };
   }
 
   componentDidMount() {
     document.title = "Products | marXel";
 
-    fetch('/api/products')
+    let apiUrl = '/api/products';
+    if(this.props.match.params.catId) {
+      apiUrl = '/api/products/category/' + this.props.match.params.catId;
+    }
+
+    fetch(apiUrl)
     .then(res => res.json())
-    .then(res => console.log(res))
-    .then(res => function(res) {
-      if (res.error) return false;
-      let productList = [...res.products];
-      if(res.products.length > 0) {
+    .then((res) => {
+      if (!res.products || res.error) return false;
+      if (res.products.length > 0) {
         this.setState({
-          products: update(this.state.products, {$set: productList})
+          products: update(this.state.products, {$set: res.products})
         });
       }
     })
-    .then(res => console.log(this.state));
+
+    fetch('/api/categories')
+    .then(res => res.json())
+    .then((res) => {
+      if (res.length < 1) return false;
+      if (res.length > 0) {
+        this.setState({
+          categories: update(this.state.categories, {$set: res})
+        });
+      }
+    })
   }
 
   render() {
@@ -42,7 +61,7 @@ class Products extends React.Component {
       							Categories
       						</h4>
       						<ul className="p-b-54">
-      							<Category/>
+      							{this.state.categories.map((category:string,i:number)=><Category category={category} key={i}/>)}
       						</ul>
       						<h4 className="m-text14 p-b-32">
       							Filters
@@ -58,7 +77,7 @@ class Products extends React.Component {
       				</div>
               <div className="col-sm-6 col-md-8 col-lg-9 p-b-50" data-component="products_holder">
                 <div className="row">
-                  {this.state.products.map((option:string,i:number)=><ProductsItem option={option} key={i}/>)}
+                  {this.state.products.map((product:string,i:number)=><ProductsItem product={product} key={i}/>)}
                 </div>
               </div>
       			</div>

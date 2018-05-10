@@ -6,7 +6,7 @@ class ProductsItem extends React.Component {
       <div className="col-sm-12 col-md-6 col-lg-4 p-b-50">
         <div className="block2">
           <div className="block2-img wrap-pic-w of-hidden pos-relative">
-            <img src="/public/images/grass2.jpg" alt="IMG-PRODUCT"/>
+            <img src={this.props.product.image} alt="IMG-PRODUCT"/>
 
             <div className="block2-overlay trans-0-4">
               <div className="block2-btn-addcart w-size1 trans-0-4">
@@ -18,12 +18,12 @@ class ProductsItem extends React.Component {
           </div>
 
           <div className="block2-txt p-t-20">
-            <a href="product-detail.html" className="block2-name dis-block s-text3 p-b-5">
-              Herschel supply co 25l
+            <a href={'/products/detail/' + this.props.product.id} className="block2-name dis-block s-text3 p-b-5">
+              {this.props.product.name}
             </a>
 
             <span className="block2-price m-text6 p-r-5">
-              $75.00
+              ${this.props.product.price} {this.props.product.currency}
             </span>
           </div>
         </div>
