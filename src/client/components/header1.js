@@ -4,6 +4,32 @@ import HeaderMobile from "./header_mobile";
 import MenuMobile from "./menu_mobile";
 
 class Header1 extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      user: {
+        name: 'Alex',
+        last_name: 'Herce',
+        email: 'alex@shop.com'
+      }
+    };
+  }
+
+  // componentDidMount() {
+  //   document.title = "Products | marXel";
+  //
+  //   if(this.props.match.params.prodId) {
+  //     fetch('/api/products/' + this.props.match.params.prodId)
+  //     .then(res => res.json())
+  //     .then((res) => {
+  //       if (res.error) return false;
+  //       this.setState({
+  //         product: res
+  //       });
+  //     })
+  //   }
+  // }
+
   render() {
     return (
       <header className="header1">
@@ -20,7 +46,7 @@ class Header1 extends React.Component {
               Free shipping on all products!
             </span>
             <div className="topbar-child2">
-              <span className="topbar-email">marxel@gmail.com</span>
+              <span className="topbar-email">{this.state.user.email}</span>
             </div>
           </div>
           <div className="wrap_header">

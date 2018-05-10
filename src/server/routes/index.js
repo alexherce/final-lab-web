@@ -80,7 +80,7 @@ router.get('/testing/session/get', function(req, res, next) {
   if(loggedIn(req.session)) {
     res.send(req.session.userId.toString());
   } else {
-    res.send('not logged in');
+    res.send({error: 'not logged in'});
   }
 });
 
