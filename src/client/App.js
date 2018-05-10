@@ -12,6 +12,7 @@ import Products from './components/products.js';
 import Auth from './components/login.js';
 import ProductDetail from './components/product_detail.js';
 import LogIn from './components/login.js';
+import Orders from './components/orders.js';
 import Footer from './components/footer.js';
 
 
@@ -29,6 +30,8 @@ export default class App extends Component {
             <Route exact path="/products/detail/:prodId" component={ProductDetail}/>
             <Route exact path="/products" component={Products}/>
             <Route exact path="/login" component={LogIn}/>
+            <Route exact path="/orders" component={Orders}/>
+
           </div>
         </Router>
         <Footer/>
