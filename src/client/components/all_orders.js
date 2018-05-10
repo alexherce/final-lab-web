@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Cart_page_product from "./cart_page_product";
+import Order_page_product from "./order_page_product";
 
 
 
@@ -18,7 +18,7 @@ class ProductList extends React.Component {
                 <th className="column-4 p-l-70">Quantity</th>
                 <th className="column-5">Total</th>
               </tr>
-                <Cart_page_product />
+                <Order_page_product />
             </tbody>
           </table>
         </div>

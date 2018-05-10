@@ -43,12 +43,12 @@ router.get('/products', function(req, res, next) {
   products.getAll(req, res);
 });
 
-router.get('/products/:prodId', function(req, res, next) {
-  products.get(req, res);
-});
-
 router.get('/products/category/:catId', function(req, res, next) {
   products.filterCategory(req, res);
+});
+
+router.get('/products/:prodId', function(req, res, next) {
+  products.get(req, res);
 });
 
 // ----- ORDERS -----
