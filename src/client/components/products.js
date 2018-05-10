@@ -1,10 +1,35 @@
 import React from "react";
-import ProductsHolder from "./products_holder";
+import update from 'immutability-helper';
+
+import ProductsItem from "./products_item";
 import Category from "./category";
 
+class Products extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      products: [],
+    };
+  }
 
+  componentDidMount() {
+    document.title = "Products | marXel";
 
-class CartHeaderItem extends React.Component {
+    fetch('/api/products')
+    .then(res => res.json())
+    .then(res => console.log(res))
+    .then(res => function(res) {
+      if (res.error) return false;
+      let productList = [...res.products];
+      if(res.products.length > 0) {
+        this.setState({
+          products: update(this.state.products, {$set: productList})
+        });
+      }
+    })
+    .then(res => console.log(this.state));
+  }
+
   render() {
     return (
       <div>
@@ -16,15 +41,12 @@ class CartHeaderItem extends React.Component {
       						<h4 className="m-text14 p-b-7">
       							Categories
       						</h4>
-
       						<ul className="p-b-54">
       							<Category/>
       						</ul>
-
       						<h4 className="m-text14 p-b-32">
       							Filters
       						</h4>
-
       						<div className="search-product pos-relative bo4 of-hidden" >
       							<input className="s-text7 size6 p-l-23 p-r-50" type="text" name="search-product" placeholder="Search Products..."/>
 
@@ -34,7 +56,11 @@ class CartHeaderItem extends React.Component {
       						</div>
       					</div>
       				</div>
-              <ProductsHolder/>
+              <div className="col-sm-6 col-md-8 col-lg-9 p-b-50" data-component="products_holder">
+                <div className="row">
+                  {this.state.products.map((option:string,i:number)=><ProductsItem option={option} key={i}/>)}
+                </div>
+              </div>
       			</div>
       		</div>
         </section>
@@ -43,4 +69,4 @@ class CartHeaderItem extends React.Component {
   }
 }
 
-export default CartHeaderItem;
+export default Products;
